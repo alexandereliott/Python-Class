@@ -4,18 +4,25 @@ import os
 from twilio.rest import Client
 import secrets
 
-# Find your Account SID and Auth Token at twilio.com/console
-# and set the environment variables. See http://twil.io/secure
-account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN']
-client = Client(account_sid, auth_token)
+def phish(body_message):
 
-message = client.messages \
-    .create(
-         body='Hello sir, I am Gupta I saw your microsoft apple pro has a virus will you please install this vpn so I can fix it?',
-         from_=secrets.from_number,
-         to=secrets.to_number
-     )
+    # Find your Account SID and Auth Token at twilio.com/console
+    # and set the environment variables. See http://twil.io/secure
+    account_sid = os.environ['TWILIO_ACCOUNT_SID']
+    auth_token = os.environ['TWILIO_AUTH_TOKEN']
+    client = Client(account_sid, auth_token)
 
-print(message.sid)
+    message = client.messages \
+        .create(
+             body='Hello sir, I am Gupta I saw your microsoft apple pro has a virus will you please install this vpn so I can fix it?',
+             from_=secrets.from_number,
+             to=secrets.to_number
+         )
+    
+    print(message.sid)
+   
+#phish(2021)
+if __name__ == "__main__":
+    phish(2021)
+
 
